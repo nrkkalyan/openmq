@@ -8,7 +8,7 @@ env:
   - secure: Org6qUpflPYwUaWrkbU8bOmacSHmiyhXl6R541TEKmACfgoy3MzCfSMkcJq0IlNIXTogrmSDBDhy+CuEexmujqkcvrAGai26l0BAAfZs1h59IIH/EpCAj31Msmey7CIVSAutXjAhzok9zeS3w8lmDshnFI//a2FZfKjbIv5os9L+9BBKvlNAO7BD4dOzrf2nh3u/LoM95JY4Gype0lhBah5SUmnqZybb/7V/RLO3JsFGxAfnrY8QlOc3kEX1/ERXH16BNYMuh8VRERgx7l/nwABb5u62B39h98uQivSWFzctL+SzUvfs2piUTgsf1F+7JjscJN7lbUsgSEILXv16SrySqZqdSZqZ+S+eRKRQYPQRz4N67phUFxjnpbdnL+XhOwmq0AYIwmpzG/LjXhwfVy+UoYb09aY0a0vZo/rTdcYL/LRb+wJFveejsnyTxrR0Gt2u2o0d/7e1LibJkKDcQbnt8cVdSM7pLh9BjO8lFgfRFqLxBHM4n3nAtanoH9gczGZce3rJ6ir5ck7/Tkdt1kxlOlBUgR3TXB1uNc6j4YNMLLTVK+3Qb1E56P/wkrDayqEu/O36Llh/72u9l7sOODhY+6pInHfs2wEBVFuVt9WsvDiK5+iWwaks2/Vd/FUFCpU1M4qMbsUToraEPTRrQoc8oqJ5kbTyz77K2eacWhQ=
   - secure: D6e1ZByrWZEPUJWMGzYdyrLujDNiZc01WNLuGDcNTonwJmrrFfi+xdVPNFLiaUQKXA+NmCO+X+n0kfVUHwIVgqb9RqNgB61vH2EAI5VzNvMMDWurnCFOsTy8zSRET3JQDgg3dfdwHAAvshnPqZ5G/sTZD4KN+dnthuxKPeCGA4zfLEGXDMuq6BAzTmCeWhsG2nylrx+MUTESnx2aC+6rTXfBwqyb8WlXvqAQkbNAwhLsenKTdMrPFTmbxSO+4GdbgfnOqiy/Aeb/HoYlhFY/wvd1NIkjkqShBTvtgNMZ8T+oplCl4ouVnpg21+X1I8w9zI1dR2tNh9N6VCy3wmSLo01VR6bnmNbxq+F4k8i6mJkbPSVtSNOfUdQdDqUaWo0swUN6/E4G7BhdccpLxgI+m7ydvt/yo8ZsaarbOPY8pExfHWPpKPIyKxq23EJgEs1zGuAQuCtkU4odM+OesD2GX+XPtk8vckmfofZyh9cP/5RxyANGxBMMpxscDTHQVU+6mhTE/dEVbzo8A8tiGVyANPFSEoEJQbcZyHqYzyFf8O7dRqb64VCtKaCxCPXX6U7cu2A0T0v/UvahXVoONDZNpLUswq5fN4c0S2RALZg7LGWCQV7fR6GH02/NxEsA30n73l4g8DhJuvHVnQmIWNXrBAx3bMq9q6As+9iXWXZNxuM=
 before_script:
-- version="$(awk -F '[=]' '/ARG OPENMQ_VERSION/ {print $2}' Dockerfile)"
+- version="$(awk -F '[=]' '/ENV OPENMQ_VERSION/ {print $2}' Dockerfile)"
 script:
 - docker build -t "$IMAGE_NAME" .
 after_script:
