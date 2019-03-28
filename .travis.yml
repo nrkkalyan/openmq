@@ -1,0 +1,22 @@
+sudo: required
+language: ruby
+services:
+- docker
+env:
+  global:
+  - IMAGE_NAME=ringcentral/openmq
+before_script:
+- version="$(awk -F '[=]' '/ARG OPENMQ_VERSION/ {print $2}' Dockerfile)"
+script:
+- docker build -t "$IMAGE_NAME" .
+after_script:
+- docker images
+before_deploy:
+- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+- docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+- docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${version}"
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+  on:
+    branch: master
