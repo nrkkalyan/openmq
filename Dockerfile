@@ -7,7 +7,7 @@ ARG OPENMQ_ARCHIVE=openmq5_1-binary-linux.zip
 ADD /config/config.properties /opt/openmq/var/mq/instances/imqbroker/props/config.properties
 
 RUN cd /opt/openmq/ && \
-    curl -v -o $OPENMQ_ARCHIVE http://download.java.net/mq/open-mq/$OPENMQ_VERSION/latest/$OPENMQ_ARCHIVE && \
+    wget "http://download.java.net/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null \
     unzip $OPENMQ_ARCHIVE
 
 # portmapper & broker
