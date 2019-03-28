@@ -1,8 +1,8 @@
 FROM ringcentral/jdk:8u202-alpine3.8
 LABEL maintainer="john.lin@ringcentral.com"
 
-ARG OPENMQ_VERSION=5.1
-ARG OPENMQ_ARCHIVE=openmq5_1-binary-linux.zip
+ENV OPENMQ_VERSION=5.1 \
+    OPENMQ_ARCHIVE=openmq5_1-binary-linux.zip
 
 ADD /config/config.properties /opt/openmq/var/mq/instances/imqbroker/props/config.properties
 
