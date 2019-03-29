@@ -10,7 +10,7 @@ RUN cd /opt/openmq/ && \
     wget "http://download.java.net/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null && \
     unzip $OPENMQ_ARCHIVE
 
-RUN mv MessageQueue${OPENMQ_VERSION} MessageQueue && \
+RUN mv MessageQueue${OPENMQ_VERSION}/* MessageQueue/ && \
     rm -f $OPENMQ_ARCHIVE
 
 # portmapper & broker
