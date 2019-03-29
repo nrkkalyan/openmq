@@ -16,4 +16,4 @@ EXPOSE 7676
 # jms service
 EXPOSE 7677
 
-CMD ["/opt/openmq/MessageQueue5.1/mq/bin/imqbrokerd", "-vmargs","-autorestart"]
+CMD ["/opt/openmq/MessageQueue5.1/mq/bin/imqbrokerd", "-vmargs"]
