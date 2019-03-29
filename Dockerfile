@@ -9,17 +9,11 @@ ADD /config/config.properties /opt/openmq/MessageQueue/var/mq/instances/imqbroke
 RUN cd /opt/openmq/ && \
     wget "http://download.java.net/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null && \
     unzip $OPENMQ_ARCHIVE && \
-    mv /opt/openmq/MessageQueue${OPENMQ_VERSION} /opt/openmq/MessageQueue
+    mv "/opt/openmq/MessageQueue${OPENMQ_VERSION}" /opt/openmq/MessageQueue
 
 # portmapper & broker
 EXPOSE 7676
 # jms service
 EXPOSE 7677
-# ssljms service
-#EXPOSE 7678
-# admin service
-#EXPOSE 7679
-# ssladmin service
-#EXPOSE 7680
 
 CMD ["/opt/openmq/MessageQueue/mq/bin/imqbrokerd", "-vmargs","-autorestart"]
