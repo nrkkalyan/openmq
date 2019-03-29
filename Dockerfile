@@ -9,7 +9,8 @@ ADD /config/config.properties /opt/openmq/MessageQueue/var/mq/instances/imqbroke
 RUN cd /opt/openmq/ && \
     wget "http://download.java.net/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null && \
     unzip $OPENMQ_ARCHIVE && \
-    mv "/opt/openmq/MessageQueue${OPENMQ_VERSION}" /opt/openmq/MessageQueue
+    mv MessageQueue${OPENMQ_VERSION} MessageQueue && \
+    rm -f $OPENMQ_ARCHIVE
 
 # portmapper & broker
 EXPOSE 7676
