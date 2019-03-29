@@ -13,7 +13,7 @@ RUN cd /opt/openmq/ && \
 
 # portmapper & broker
 EXPOSE 7676
-# jms service
+# stomp service
 EXPOSE 7677
 
-CMD ["/opt/openmq/MessageQueue5.1/mq/bin/imqbrokerd", "-vmargs"]
+CMD ["/opt/openmq/MessageQueue5.1/mq/bin/imqbrokerd", "-vmargs", "-d64", "-port", "7676"]
