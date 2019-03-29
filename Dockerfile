@@ -4,11 +4,12 @@ LABEL maintainer="john.lin@ringcentral.com"
 ENV OPENMQ_VERSION=5.1
 ENV OPENMQ_ARCHIVE=openmq5_1-binary-linux.zip
 
-ADD /config/config.properties /opt/openmq/MessageQueue${OPENMQ_VERSION}/var/mq/instances/imqbroker/props/config.properties
+ADD /config/config.properties /opt/openmq/MessageQueue/var/mq/instances/imqbroker/props/config.properties
 
 RUN cd /opt/openmq/ && \
     wget "http://download.java.net/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null && \
-    unzip $OPENMQ_ARCHIVE
+    unzip $OPENMQ_ARCHIVE && \
+    mv /opt/openmq/MessageQueue${OPENMQ_VERSION} /opt/openmq/MessageQueue
 
 # portmapper & broker
 EXPOSE 7676
@@ -21,4 +22,4 @@ EXPOSE 7677
 # ssladmin service
 #EXPOSE 7680
 
-CMD ["/opt/openmq/MessageQueue${OPENMQ_VERSION}/mq/bin/imqbrokerd", "-vmargs","-autorestart"]
+CMD ["/opt/openmq/MessageQueue/mq/bin/imqbrokerd", "-vmargs","-autorestart"]
