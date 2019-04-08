@@ -1,4 +1,4 @@
-FROM ringcentral/jdk:8u202-alpine3.8
+FROM java:8-jdk
 LABEL maintainer="john.lin@ringcentral.com"
 
 ENV OPENMQ_VERSION=5.1
