@@ -16,4 +16,4 @@ EXPOSE 7676
 # stomp service
 EXPOSE 7677
 
-CMD ["/opt/openmq/MessageQueue5.1/mq/bin/imqbrokerd","-startRmiRegistry","-rmiRegistryPort","1616","-port","7676","-silent","-vmargs","-server","-Xms1g","-Xmx5g","-XX:MaxMetaspaceSize=1g","-XX:-UseGCOverheadLimit","-Djava.io.tmpdir=/tmp"]
+ENTRYPOINT ["/opt/openmq/MessageQueue5.1/mq/bin/imqbrokerd","-startRmiRegistry","-rmiRegistryPort","1616","-port","7676","-silent","-vmargs","-server","-Xms1g","-Xmx5g","-XX:MaxMetaspaceSize=1g","-XX:-UseGCOverheadLimit","-Djava.io.tmpdir=/tmp"]
