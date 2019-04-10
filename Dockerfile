@@ -15,7 +15,7 @@ RUN cd /opt/openmq/ && \
 
 RUN /opt/openmq/mq/bin/imqbrokerd -init && /opt/openmq/mq/bin/imqusermgr add -u jsclient -p jsclient -g admin
 
-RUN /opt/openmq/mq/bin/imqusermgr encode -src /opt/files/tmp_pass.file -target /opt/files/pass.file && rm -f /opt/files/tmp_pass.file
+RUN /opt/openmq/mq/bin/imqusermgr encode -f -src /opt/files/tmp_pass.file -target /opt/files/pass.file && rm -f /opt/files/tmp_pass.file
 
 # portmapper & broker
 EXPOSE 7676
