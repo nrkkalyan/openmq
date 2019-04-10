@@ -23,4 +23,6 @@ EXPOSE 7676
 # stomp service
 EXPOSE 7677
 
-ENTRYPOINT ["/opt/openmq/mq/bin/imqbrokerd", "-startRmiRegistry -rmiRegistryPort 1616 -port 7676 -vmargs \"-server -Xms1g -Xmx5g -XX:MaxMetaspaceSize=1g -XX:-UseGCOverheadLimit -Djava.io.tmpdir=/tmp\""]
+ADD ./startup.sh ./
+RUN chmod +x ./startup.sh
+ENTRYPOINT ["./startup.sh"]
