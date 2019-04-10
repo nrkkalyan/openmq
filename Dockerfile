@@ -6,7 +6,7 @@ ENV OPENMQ_ARCHIVE=openmq5_1_2.zip
 
 ADD /config/config.properties /opt/openmq/mq/var/instances/imqbroker/props/config.properties
 
-ADD files /opt/
+ADD files /opt/files
 
 RUN cd /opt/openmq/ && \
     wget "https://download.oracle.com/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null && \
