@@ -6,12 +6,16 @@ ENV OPENMQ_ARCHIVE=openmq5_1_2.zip
 
 ADD /config/config.properties /opt/openmq/mq/var/instances/imqbroker/props/config.properties
 
+ADD files /opt/
+
 RUN cd /opt/openmq/ && \
     wget "https://download.oracle.com/mq/open-mq/${OPENMQ_VERSION}/latest/${OPENMQ_ARCHIVE}" 2>/dev/null && \
     unzip ${OPENMQ_ARCHIVE} && \
     rm -f ${OPENMQ_ARCHIVE}
 
 RUN /opt/openmq/mq/bin/imqbrokerd -init && /opt/openmq/mq/bin/imqusermgr add -u jsclient -p jsclient -g admin
+
+RUN /opt/openmq/mq/bin/imqusermgr encode -src /opt/files/tmp_pass.file -target /opt/files/pass.file && rm -f /opt/files/tmp_pass.file
 
 # portmapper & broker
 EXPOSE 7676
