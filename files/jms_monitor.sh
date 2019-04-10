@@ -1,0 +1,1 @@
+/opt/openmq/mq/bin/imqcmd list dst -u admin -passfile /opt/files/pass.file | grep "$1" | awk -v N=8 '{print $N}'
