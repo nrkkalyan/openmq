@@ -1,0 +1,1 @@
+/opt/openmq/mq/bin/imqcmd -b localhost:7677 list dst -passfile /opt/openmq/mq/bin/pass.file -u admin
