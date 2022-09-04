@@ -1,5 +1,5 @@
 FROM openjdk:8
-LABEL maintainer="kalyan.nimmagadda"
+LABEL maintainer="nrkkalyan"
 
 ENV OPENMQ_VERSION=5.1.2
 ENV OPENMQ_ARCHIVE=openmq5_1_2.zip
